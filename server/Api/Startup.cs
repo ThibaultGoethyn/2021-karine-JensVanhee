@@ -1,5 +1,9 @@
+using Api.Data;
+using Api.Data.Repositories;
+using Api.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -19,7 +23,10 @@ namespace Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddDbContext<GameContext>(options => options.UseSqlServer(Configuration.GetConnectionString("GameContext")));
 
+            services.AddScoped<GameDataInitializer>();
+            services.AddScoped<IGameRepository, GameRepository>();
             services.AddOpenApiDocument(c =>
             {
                 c.DocumentName = "apidocs";
@@ -30,7 +37,7 @@ namespace Api
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, GameDataInitializer gameDataInitializer)
         {
             if (env.IsDevelopment())
             {
@@ -50,6 +57,8 @@ namespace Api
             {
                 endpoints.MapControllers();
             });
+
+            gameDataInitializer.InitializeData();
         }
     }
 }
