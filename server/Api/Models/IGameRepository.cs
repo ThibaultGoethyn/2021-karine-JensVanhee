@@ -4,12 +4,13 @@ namespace Api.Models
 {
     public interface IGameRepository
     {
-        Game GetById(int id);
+        Game GetById(int gameId);
         IEnumerable<Game> GetAll();
         IEnumerable<Game> GetByConsole(Console console);
-        void Add();
-        void Delete();
-        void Update();
+
+        void Add(Game game);
+        void Update(Game game);
+        void Delete(Game game);
         void SaveChanges();
     }
 }

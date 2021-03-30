@@ -7,23 +7,23 @@ namespace Api.Data.Repositories
 {
     public class GameRepository : IGameRepository
     {
-        private readonly GameContext _context;
+        private readonly Context _context;
         private readonly DbSet<Game> _games;
 
-        public GameRepository(GameContext dbContext)
+        public GameRepository(Context dbContext)
         {
             _context = dbContext;
             _games = dbContext.Games;
         }
 
-        public void Add()
+        public void Add(Game game)
         {
-            throw new System.NotImplementedException();
+            _games.Add(game);
         }
 
-        public void Delete()
+        public void Delete(Game game)
         {
-            throw new System.NotImplementedException();
+            _games.Remove(game);
         }
 
         public IEnumerable<Game> GetAll()
@@ -33,12 +33,12 @@ namespace Api.Data.Repositories
 
         public IEnumerable<Game> GetByConsole(Console console)
         {
-            throw new System.NotImplementedException();
+            return _games.Include(g => g.GameId).Where(g => g.Console == console).ToList();
         }
 
-        public Game GetById(int id)
+        public Game GetById(int gameId)
         {
-            return _games.Include(g => g.GameId).SingleOrDefault(g => g.GameId == id);
+            return _games.SingleOrDefault(g => g.GameId == gameId);
         }
 
         public void SaveChanges()
@@ -46,9 +46,9 @@ namespace Api.Data.Repositories
             _context.SaveChanges();
         }
 
-        public void Update()
+        public void Update(Game game)
         {
-            throw new System.NotImplementedException();
+            _context.Update(game);
         }
     }
 }

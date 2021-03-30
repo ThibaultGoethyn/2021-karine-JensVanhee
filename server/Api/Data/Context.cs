@@ -4,11 +4,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Api.Data
 {
-    public class GameContext : DbContext
+    public class Context : DbContext
     {
         public DbSet<Game> Games { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
-        public GameContext(DbContextOptions<GameContext> options) : base(options)
+        public Context(DbContextOptions<Context> options) : base(options)
         {
 
         }
@@ -17,6 +18,7 @@ namespace Api.Data
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new GameConfiguration());
+            modelBuilder.ApplyConfiguration(new CustomerConfiguration());
         }
     }
 }
