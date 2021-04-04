@@ -21,8 +21,19 @@ namespace Api.Data
             }
             if (!_dbContext.Games.Any())
             {
-                Game CodBo4Ps4 = new Game("Call Of Duty: Black Ops 4", "Modern first person shooter game.", Console.PLAYSTATION_4, 29.99, 20, 10);
-                _dbContext.Games.AddRange(CodBo4Ps4);
+                Game CodBo4Ps4 = new Game("Call Of Duty Black Ops 4", 
+                    "The most played series of Call of Duty returns with Call of Duty: Black Ops 4, an all-new gaming experience created for the Black Ops community with more ways to play with friends than ever before.",
+                    Console.PLAYSTATION_4, 35.98, 20, 10);
+
+                Game CodBo4Xb1 = new Game("Call Of Duty Black Ops 4",
+                    "The most played series of Call of Duty returns with Call of Duty: Black Ops 4, an all-new gaming experience created for the Black Ops community with more ways to play with friends than ever before.", 
+                    Console.XBOX_ONE, 26.98, 15, 5);
+
+                Game PkmnDiamondDS = new Game("Pokémon Diamond",
+                    "As a new Pokémon trainer, you go on a journey to catch, train, and fight with Pokémon to eventually become the champion of the Pokémon League. Along the way, you must overcome numerous challenges and search for the Pokémon that reigns over time in Pokémon Diamond Version.",
+                    Console.NINTENDO_DS, 39.98, 5,2);
+
+                _dbContext.Games.AddRange(CodBo4Ps4, CodBo4Xb1, PkmnDiamondDS);
                 _dbContext.SaveChanges();
             }
             if (!_dbContext.Customers.Any())
