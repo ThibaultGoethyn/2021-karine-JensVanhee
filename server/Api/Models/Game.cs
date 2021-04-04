@@ -1,15 +1,29 @@
-﻿namespace Api.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Api.Models
 {
     public class Game
     {
         #region Properties
+        [Required]
         public int GameId { get; set; }
+
+        [Required]
         public string Title { get; set; }
+
         public string Description { get; set; }
+
+        [Required]
         public Console Console { get; set; }
+
+        [Required]
         public double NewPrice { get; set; }
+
         public double UsedPrice { get; set; }
+
+        [Required]
         public int NewStock { get; set; }
+
         public int UsedStock { get; set; }
         #endregion
 

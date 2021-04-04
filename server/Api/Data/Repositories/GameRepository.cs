@@ -28,12 +28,12 @@ namespace Api.Data.Repositories
 
         public IEnumerable<Game> GetAll()
         {
-            return _games.Include(g => g.GameId).ToList();
+            return _games.ToList();
         }
 
         public IEnumerable<Game> GetByConsole(Console console)
         {
-            return _games.Include(g => g.GameId).Where(g => g.Console == console).ToList();
+            return _games.Where(g => g.Console == console).ToList();
         }
 
         public Game GetById(int gameId)
