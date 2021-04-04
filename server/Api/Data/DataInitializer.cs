@@ -1,5 +1,9 @@
 ﻿using Api.Models;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Xml;
+using Console = Api.Models.Console;
 
 namespace Api.Data
 {
@@ -21,20 +25,26 @@ namespace Api.Data
             }
             if (!_dbContext.Games.Any())
             {
-                Game CodBo4Ps4 = new Game("Call Of Duty Black Ops 4", 
-                    "The most played series of Call of Duty returns with Call of Duty: Black Ops 4, an all-new gaming experience created for the Black Ops community with more ways to play with friends than ever before.",
-                    Console.PLAYSTATION_4, 35.98, 20, 10);
+                XmlDocument xmlDocument = new XmlDocument();
+                xmlDocument.Load("Data/Games.xml");
+                XmlNodeList gameNodes = xmlDocument.SelectNodes("games/game");
 
-                Game CodBo4Xb1 = new Game("Call Of Duty Black Ops 4",
-                    "The most played series of Call of Duty returns with Call of Duty: Black Ops 4, an all-new gaming experience created for the Black Ops community with more ways to play with friends than ever before.", 
-                    Console.XBOX_ONE, 26.98, 15, 5);
+                foreach (XmlNode chldnode in gameNodes)
+                {
+                        Game game = new Game()
+                        {
+                            Title = chldnode["title"].InnerText,
+                            Description = chldnode["description"].InnerText,
+                            Console = (Console)Enum.Parse(typeof(Console), chldnode["console"].InnerText),
+                            NewPrice = double.Parse(chldnode["newPrice"].InnerText),
+                            UsedPrice = double.Parse(chldnode["usedPrice"].InnerText),
+                            NewStock = int.Parse(chldnode["newStock"].InnerText),
+                            UsedStock = int.Parse(chldnode["usedStock"].InnerText)
+                        };
 
-                Game PkmnDiamondDS = new Game("Pokémon Diamond",
-                    "As a new Pokémon trainer, you go on a journey to catch, train, and fight with Pokémon to eventually become the champion of the Pokémon League. Along the way, you must overcome numerous challenges and search for the Pokémon that reigns over time in Pokémon Diamond Version.",
-                    Console.NINTENDO_DS, 39.98, 5,2);
-
-                _dbContext.Games.AddRange(CodBo4Ps4, CodBo4Xb1, PkmnDiamondDS);
-                _dbContext.SaveChanges();
+                    _dbContext.Games.AddRange(game);
+                    _dbContext.SaveChanges();
+                }
             }
             if (!_dbContext.Customers.Any())
             {

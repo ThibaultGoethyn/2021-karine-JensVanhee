@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<games>
+	<game>
+		<title>testgame1</title>
+		<description>testdescription1</description>
+		<console>PLAYSTATION_5</console>
+		<newPrice>99.99</newPrice>
+		<usedPrice>67.66</usedPrice>
+		<newStock>20</newStock>
+		<usedStock>10</usedStock>
+	</game>
+</games>
