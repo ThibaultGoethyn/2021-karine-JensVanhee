@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { GameModule } from './game/game.module';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { GameModule } from './game/game.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    GameModule
+    GameModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
