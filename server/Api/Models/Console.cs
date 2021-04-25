@@ -16,8 +16,6 @@ namespace Api.Models
         XBOX_360,
         [XmlEnum("XBOX_ONE")]
         XBOX_ONE,
-        [XmlEnum("XBOX_SERIES_X")]
-        XBOX_SERIES_X,
         [XmlEnum("NINTENDO_DS")]
         NINTENDO_DS,
         [XmlEnum("NINTENDO_3DS")]
