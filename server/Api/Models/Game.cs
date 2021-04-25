@@ -21,7 +21,7 @@ namespace Api.Models
 
         [Required]
         [XmlElement("console")]
-        public Console Console { get; set; }
+        public GameConsole Console { get; set; }
 
         [Required]
         [XmlElement("newPrice")]
@@ -44,7 +44,7 @@ namespace Api.Models
         {
         }
 
-        public Game(string title, string description, Console console, double newPrice, double usedPrice, int newStock, int usedStock)
+        public Game(string title, string description, GameConsole console, double newPrice, double usedPrice, int newStock, int usedStock)
         {
             this.Title = title;
             this.Description = description;

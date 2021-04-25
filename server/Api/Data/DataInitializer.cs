@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
-using Console = Api.Models.Console;
+using GameConsole = Api.Models.GameConsole;
 
 namespace Api.Data
 {
@@ -35,7 +35,7 @@ namespace Api.Data
                         {
                             Title = chldnode["title"].InnerText,
                             Description = chldnode["description"].InnerText,
-                            Console = (Console)Enum.Parse(typeof(Console), chldnode["console"].InnerText),
+                            Console = (GameConsole)Enum.Parse(typeof(GameConsole), chldnode["console"].InnerText),
                             NewPrice = double.Parse(chldnode["newPrice"].InnerText),
                             UsedPrice = double.Parse(chldnode["usedPrice"].InnerText),
                             NewStock = int.Parse(chldnode["newStock"].InnerText),

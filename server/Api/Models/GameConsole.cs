@@ -2,7 +2,7 @@
 
 namespace Api.Models
 {
-    public enum Console
+    public enum GameConsole
     {
         [XmlEnum("PLAYSTATION_3")]
         PLAYSTATION_3,
