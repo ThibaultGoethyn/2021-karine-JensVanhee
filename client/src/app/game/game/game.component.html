@@ -1,4 +1,15 @@
-<p>game named {{title}}</p>
-<p>game description {{description}}</p>
-<p>game console {{console}}</p>
-<p>game new price {{newPrice | currency:'EUR':true}}</p>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            {{game.title}} 
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+            {{game.description}}
+            {{game.console}}
+            {{game.newPrice}}
+            {{game.usedPrice}}
+            {{game.newStock}}
+            {{game.usedStock}}
+    </mat-card-content>
+</mat-card>
