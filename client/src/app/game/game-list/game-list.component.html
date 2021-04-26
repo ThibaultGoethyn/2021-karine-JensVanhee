@@ -1,0 +1,15 @@
+<div
+  fxLayout="row wrap"
+  fxLayout.xs="column"
+  fxLayoutGap="0.5%"
+  fxLayoutAlign="start"
+>
+  <div 
+    class="game"
+    *ngFor="let localGame of games"
+    fxFlex="0 0 calc(25%-0.5%)"
+    fxFlex.xs="100%"
+  >
+    <app-game [game]="localGame"></app-game>
+  </div>
+</div>

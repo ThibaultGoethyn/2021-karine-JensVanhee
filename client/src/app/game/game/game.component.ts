@@ -7,7 +7,7 @@ import { Game } from '../game.model';
   styleUrls: ['./game.component.css']
 })
 export class GameComponent implements OnInit {
-  @Input() public game: Game;
+  @Input() public game!: Game;
 
   constructor() {
 

@@ -1,15 +1,15 @@
-<mat-card>
+<mat-card class="example-card">
     <mat-card-header>
-        <mat-card-title>
-            {{game.title}} 
-        </mat-card-title>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{game.title}}</mat-card-title>
+      <mat-card-subtitle>{{game.console}}</mat-card-subtitle>
     </mat-card-header>
+    <img mat-card-image src="assets/images/{{game.console}} {{game.title}}.png">
     <mat-card-content>
-            {{game.description}}
-            {{game.console}}
-            {{game.newPrice}}
-            {{game.usedPrice}}
-            {{game.newStock}}
-            {{game.usedStock}}
+      <p>
+        {{game.description}}
+      </p>
+      <p>New price: {{game.newPrice | currency:"EUR":"symbol" }} New in stock: {{game.newStock}}  <button>Buy new</button></p>
+      <p>Used price: {{game.usedPrice | currency:"EUR":"symbol" }} New in stock: {{game.usedStock}}  <button>Buy used</button></p> 
     </mat-card-content>
-</mat-card>
+  </mat-card>
