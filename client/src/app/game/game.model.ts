@@ -19,16 +19,17 @@ export class Game {
         private _usedStock: number
     ) {}
   
-    static fromJSON(jsonGame: any): Game {
-        return new Game(
-            jsonGame.title,
-            jsonGame.description,
-            jsonGame.console,
-            jsonGame.newPrice,
-            jsonGame.usedPrice,
-            jsonGame.newStock,
-            jsonGame.usedStock
-        );
+    static fromJSON(json: GameJson): Game {
+        const game = new Game(
+            json.title,
+            json.description,
+            json.console,
+            json.newPrice,
+            json.usedPrice,
+            json.newStock,
+            json.usedStock);
+
+        return game;
     }
 
     get title(): string {
