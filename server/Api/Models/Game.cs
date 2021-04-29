@@ -1,11 +1,8 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Xml.Serialization;
 
 namespace Api.Models
 {
-    [Serializable]
-    [XmlRoot("Games"), XmlType("Games")]
     public class Game
     {
         #region Properties
@@ -13,30 +10,25 @@ namespace Api.Models
         public int GameId { get; set; }
 
         [Required]
-        [XmlElement("title")]
         public string Title { get; set; }
 
-        [XmlElement("description")]
         public string Description { get; set; }
 
         [Required]
-        [XmlElement("console")]
         public GameConsole Console { get; set; }
 
         [Required]
-        [XmlElement("newPrice")]
         public double NewPrice { get; set; }
 
         [Required]
-        [XmlElement("usedPrice")]
         public double UsedPrice { get; set; }
 
         [Required]
-        [XmlElement("newStock")]
         public int NewStock { get; set; }
 
-        [XmlElement("usedStock")]
         public int UsedStock { get; set; }
+
+        public ICollection<Customer> Customers { get; set; }
         #endregion
 
         #region Constructors

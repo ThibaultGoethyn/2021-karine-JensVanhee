@@ -27,7 +27,7 @@ namespace Api.Data.Repositories
 
         public Customer GetById(int customerId)
         {
-            return _customers.Include(x => x.OwnedGames).SingleOrDefault(x => x.CustomerId == customerId);
+            return _customers.Include(x => x.Games).SingleOrDefault(x => x.CustomerId == customerId);
         }
 
         public void SaveChanges()
