@@ -6,7 +6,6 @@ namespace Api.Models
     public class Customer
     {
         #region Properties
-        [Required]
         public int CustomerId { get; set; }
 
         [Required]

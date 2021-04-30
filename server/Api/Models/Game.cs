@@ -6,7 +6,6 @@ namespace Api.Models
     public class Game
     {
         #region Properties
-        [Required]
         public int GameId { get; set; }
 
         [Required]
@@ -23,7 +22,6 @@ namespace Api.Models
         [Required]
         public double UsedPrice { get; set; }
 
-        [Required]
         public int NewStock { get; set; }
 
         public int UsedStock { get; set; }
