@@ -53,17 +53,20 @@ namespace Api.Data
                     Customer Nathan = new Customer("Nathan", "Drake", "Nathan-Drake@gmail.com", "N@th@n123")
                     {
                         // Uncharted Drakes Fortune, Uncharted 2 Among Thieves, Uncharted 3 Drake's Deception
-                        Games = new List<Game> { games[1], games[2], games[3] }
+                        Games = new List<Game> { games[1], games[2], games[3] },
+                        Balance = 100.00
                     };
                     Customer Danny = new Customer("Danny", "Johanson", "Danny-Johanson@gmail.com", "D@nny123")
                     {
                         // Call Of Duty Black Ops II, Marvel's Spider-Man, Call Of Duty Black Ops Cold War [PS4], Pokémon Diamond
-                        Games = new List<Game> { games[4], games[6], games[7], games[14]}
+                        Games = new List<Game> { games[4], games[6], games[7], games[14] },
+                        Balance = 48.54
                     };
                     Customer Amber = new Customer("Amber", "Wright", "Amber-Wright@gmail.com", "@mber123")
                     {
                         // Sackboy A Big Adventure, Playstation All-Stars Battle Royale, Pokémon Diamond, Super Smash Bros. Ultimate
-                        Games = new List<Game> { games[10], games[11], games[14], games[16] }
+                        Games = new List<Game> { games[10], games[11], games[14], games[16] },
+                        Balance = 89.45
                     };
                     Customer Jonathan = new Customer("Jonathan", "Loones", "Jonathan-Loones@gmail.com", "Jon@th@n123");
 

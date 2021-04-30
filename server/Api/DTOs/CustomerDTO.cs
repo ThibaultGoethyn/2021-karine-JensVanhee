@@ -18,6 +18,8 @@ namespace Api.DTO
         [Required]
         public string Password { get; set; }
 
+        public double Balance { get; set; }
+
         public List<Game> Games { get; set; }
     }
 }
