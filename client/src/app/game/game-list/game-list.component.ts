@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { GameDataService } from '../game-data.service';
+import { Game } from '../game.model';
 
 @Component({
   selector: 'app-game-list',
@@ -8,9 +10,11 @@ import { GameDataService } from '../game-data.service';
 })
 
 export class GameListComponent {
+  private _fetchGames$: Observable<Game[]> = this._gameDataService.games$;
+
   constructor(private _gameDataService: GameDataService) { }
 
-  get games() {
-    return this._gameDataService.games;
+  get games$(): Observable<Game[]> {
+    return this._fetchGames$;
   }
 }

@@ -1,4 +1,5 @@
 interface GameJson {
+    gameId: number,
     title: string,
     description: string,
     console: string,
@@ -10,6 +11,7 @@ interface GameJson {
 
 export class Game {
     constructor(
+        private _gameId: number,
         private _title: string, 
         private _description: string,
         private _console: string,
@@ -21,6 +23,7 @@ export class Game {
   
     static fromJSON(json: GameJson): Game {
         const game = new Game(
+            json.gameId,
             json.title,
             json.description,
             json.console,
@@ -30,6 +33,9 @@ export class Game {
             json.usedStock);
 
         return game;
+    }
+    get gameId(): number {
+        return this._gameId;
     }
 
     get title(): string {

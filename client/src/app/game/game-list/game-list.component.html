@@ -6,7 +6,7 @@
 >
   <div 
     class="game"
-    *ngFor="let localGame of games"
+    *ngFor="let localGame of games$ | async"
     fxFlex="0 0 calc(25%-0.5%)"
     fxFlex.xs="100%"
   >
