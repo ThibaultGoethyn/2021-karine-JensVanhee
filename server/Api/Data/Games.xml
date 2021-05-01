@@ -154,7 +154,7 @@
 	</game>
 	<!--Nintendo Switch games-->
 	<game>
-		<title>Super Smash Bros. Ultimate</title>
+		<title>Super Smash Bros Ultimate</title>
 		<description>Super Smash Bros. is a Japanese series of crossover fighting video games published by Nintendo, and primarily features characters from various Nintendo franchises. The series was created by Masahiro Sakurai, who has directed every game in the series.</description>
 		<console>NINTENDO_SWITCH</console>
 		<newPrice>64.98</newPrice>

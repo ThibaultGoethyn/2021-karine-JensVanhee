@@ -2,7 +2,7 @@ interface GameJson {
     gameId: number,
     title: string,
     description: string,
-    console: string,
+    console: number,
     newPrice: number,
     usedPrice: number,
     newStock: number,
@@ -22,11 +22,36 @@ export class Game {
     ) {}
   
     static fromJSON(json: GameJson): Game {
+        let console;
+        
+        switch(json.console) {
+            case 0: console = "Playstation 3";
+                break;
+            case 1: console = "Playstation 4";
+                break;
+            case 2: console = "Playstation 5";
+                break;
+            case 3: console = "Playstation Vita";
+                break;
+            case 4: console = "Xbox 360";
+                break;
+            case 5: console = "Xbox One";
+                break;
+            case 6: console = "Nintendo DS";
+                break;
+            case 7: console = "Nintendo 3DS";
+                break;
+            case 8: console = "Nintendo Switch";
+                break;
+            default: console = "Console not found"
+                break;
+        }
+
         const game = new Game(
             json.gameId,
             json.title,
             json.description,
-            json.console,
+            console,
             json.newPrice,
             json.usedPrice,
             json.newStock,
@@ -65,4 +90,6 @@ export class Game {
     get usedStock(): number {
         return this._usedStock;
     }
+
+
 }
