@@ -4,12 +4,14 @@ import { GameComponent } from './game/game.component';
 import { MaterialModule} from './../material/material.module';
 import { GameListComponent } from './game-list/game-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { GameFilterPipe } from './game-filter.pipe';
 
 
 @NgModule({
   declarations: [
     GameComponent,
-    GameListComponent
+    GameListComponent,
+    GameFilterPipe
   ],
   imports: [
     CommonModule,

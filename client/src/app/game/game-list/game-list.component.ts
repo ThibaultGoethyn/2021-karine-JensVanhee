@@ -11,8 +11,13 @@ import { Game } from '../game.model';
 
 export class GameListComponent {
   private _fetchGames$: Observable<Game[]> = this._gameDataService.games$;
-
+  public filterGameTitle!: string;
+  
   constructor(private _gameDataService: GameDataService) { }
+
+  applyFilter(filter: string){
+    this.filterGameTitle = filter;
+  }
 
   get games$(): Observable<Game[]> {
     return this._fetchGames$;

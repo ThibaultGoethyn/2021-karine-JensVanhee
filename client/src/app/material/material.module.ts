@@ -5,23 +5,29 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+
+const modules = [
+  BrowserAnimationsModule,
+  FlexLayoutModule,
+  MatListModule,
+  MatCardModule,
+  MatIconModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatButtonModule
+]
 
 @NgModule({
   declarations: [],
-  imports: [
+  imports: [  
     CommonModule,
-    BrowserAnimationsModule,
-    FlexLayoutModule,
-    MatListModule,
-    MatCardModule,
-    MatIconModule
+    modules
   ],
   exports: [
-    BrowserAnimationsModule,
-    FlexLayoutModule,
-    MatListModule,
-    MatCardModule,
-    MatIconModule
+    modules
   ]
 })
 export class MaterialModule { }

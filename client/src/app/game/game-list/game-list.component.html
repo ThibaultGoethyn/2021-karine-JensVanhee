@@ -1,10 +1,22 @@
-<div fxLayout="row wrap" fxLayoutGap="1% grid" fxLayoutAlign="end none">
+<div fxLayout="row" fxLayoutGap="2%">
+<mat-card>
+  <h3>Filters</h3>
+  <mat-form-field>
+    <input matInput placeholder="Title" type="text" #filter/>
+  </mat-form-field>
+  <button (click)="applyFilter(filter.value)" mat-flat-button color="primary">
+    filter
+  </button>
+</mat-card>
+
+<div fxLayout="row wrap" fxLayoutGap="1% grid" fxLayoutAlign="start none">
   <div 
     class="game"
-    *ngFor="let localGame of games$ | async"
+    *ngFor="let localGame of (games$ | async | gameFilter: filterGameTitle)"
     fxFlex="20%"
     fxFlex.xs="100%"
   >
     <app-game [game]="localGame"></app-game>
   </div>
+</div>
 </div>
