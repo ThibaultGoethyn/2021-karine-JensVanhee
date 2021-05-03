@@ -13,7 +13,7 @@
   <div 
     class="game"
     *ngFor="let localGame of (games$ | async | gameFilter: filterGameTitle)"
-    fxFlex="20%"
+    fxFlex="25%"
     fxFlex.xs="100%"
   >
     <app-game [game]="localGame"></app-game>

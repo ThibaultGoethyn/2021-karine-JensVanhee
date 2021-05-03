@@ -3,22 +3,30 @@
       <mat-card-title>{{game.title}}</mat-card-title>
       <mat-card-subtitle>{{game.console}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="assets/images/{{game.console}} {{game.title}}.jpg">
+    <img mat-card-image src="assets/images/{{game.console}} {{game.title}}.jpg" onerror="if (this.src != 'assets/images/GameNotFound.jpg') this.src = 'assets/images/GameNotFound.jpg'">
     <mat-card-content>
-     {{game.description}}
-    <mat-list>
-      <mat-list-item>
-        <p>New price: {{game.newPrice | currency:"EUR":"symbol" }}</p>
-        <p>Used price: {{game.usedPrice | currency:"EUR":"symbol" }}</p> 
-      </mat-list-item>
-      <mat-list-item>
-        <p>New in stock: {{game.newStock}}</p> 
-        <p>Used in stock: {{game.usedStock}}</p> 
-      </mat-list-item>
-      <mat-list-item>
-        <button>Buy New</button>
-        <button>Buy Used</button>
-      </mat-list-item>
-    </mat-list>
-    </mat-card-content>
+    <p>{{game.description}}</p> 
+    <table style="width: 100%">
+      <tr>
+        <td>New price</td>
+        <td>Used price</td>
+      </tr>
+      <tr>
+        <td>{{game.newPrice | currency:"EUR":"symbol" }}</td>
+        <td>{{game.usedPrice | currency:"EUR":"symbol" }}</td>
+      </tr>
+      <tr>
+        <td>New stock</td>
+        <td>Used stock</td>
+      </tr>
+      <tr>
+        <td>{{game.newStock}}</td> 
+        <td>{{game.usedStock}}</td> 
+      </tr>
+      <tr>
+        <td><button mat-stroked-button><span class="material-icons">shopping_cart</span>New</button></td>
+        <td><button mat-stroked-button><span class="material-icons">shopping_cart</span>Used</button></td>
+      </tr>
+    </table>
+  </mat-card-content>
   </mat-card>
