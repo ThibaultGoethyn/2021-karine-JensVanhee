@@ -7,6 +7,7 @@ namespace Api.Models
         Game GetById(int gameId);
         IEnumerable<Game> GetAll();
         IEnumerable<Game> GetByConsole(GameConsole console);
+        IEnumerable<Game> GetByCustomer(Customer customer);
 
         void Add(Game game);
         void Update(Game game);
