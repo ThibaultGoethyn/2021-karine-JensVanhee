@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Api.Models.Customer">
+    <Position X="1" Y="1.5" Width="3.25" />
+    <AssociationLine Name="Games" Type="Api.Models.Game" FixedToPoint="true">
+      <Path>
+        <Point X="4.25" Y="3.188" />
+        <Point X="6" Y="3.188" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>QAAAAEAAACAAAAAIAAgAAAAAAAAAABAGAAAAAAABAAA=</HashCode>
+      <FileName>Models\Customer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Games" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Api.Models.Game">
+    <Position X="6" Y="1.5" Width="3.5" />
+    <AssociationLine Name="Customers" Type="Api.Models.Customer" FixedFromPoint="true">
+      <Path>
+        <Point X="6" Y="2.438" />
+        <Point X="4.25" Y="2.438" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAWAAAAEAAAgAEAAAAEAAAAAAAAACAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Models\Game.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Console" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Customers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Interface Name="Api.Models.ICustomerRepository">
+    <Position X="1.5" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gAYAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Models\ICustomerRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Api.Models.IGameRepository">
+    <Position X="6.5" Y="4.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>gAYAAAAAAAAAAAAAAAAAAgAAAAEACAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Models\IGameRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Api.Models.GameConsole" Collapsed="true">
+    <Position X="11.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACHAEAAAAAAAAAEAAAAQAgQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\GameConsole.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
