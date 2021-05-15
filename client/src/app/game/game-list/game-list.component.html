@@ -2,11 +2,8 @@
 <mat-card>
   <h3>Filters</h3>
   <mat-form-field>
-    <input matInput placeholder="Title" type="text" #filter/>
+    <input matInput placeholder="Title" type="text" (keyup)="this.filterGame$.next($any($event.target).value)"/>
   </mat-form-field>
-  <button (click)="applyFilter(filter.value)" mat-flat-button color="primary">
-    filter
-  </button>
 </mat-card>
 
 <div fxLayout="row wrap" fxLayoutGap="1% grid" fxLayoutAlign="start none">
