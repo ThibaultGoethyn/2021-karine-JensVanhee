@@ -31,9 +31,9 @@ namespace Api.Data.Repositories
             return _games.ToList();
         }
 
-        public IEnumerable<Game> GetByConsole(GameConsole console)
+        public IEnumerable<Game> GetByGameConsole(string gameConsole)
         {
-            return _games.Where(g => g.Console == console).ToList();
+            return _games.Where(g => g.GameConsole == gameConsole).ToList();
         }
 
         public IEnumerable<Game> GetByCustomer(Customer customer)

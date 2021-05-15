@@ -53,7 +53,7 @@ namespace Api.Models
                     Games.Add(game);
                 }
                 else
-                    throw new ArgumentException($"{game.Title} for the {game.Console} is not available new, try buying it used or try again later.");
+                    throw new ArgumentException($"{game.Title} for the {game.GameConsole} is not available new, try buying it used or try again later.");
             }
             else if (!isNew && Balance >= game.UsedPrice)
             {
@@ -64,7 +64,7 @@ namespace Api.Models
                     Games.Add(game);
                 }
                 else
-                    throw new ArgumentException($"{game.Title} for the {game.Console} is not available used, try buying it new or try again later.");
+                    throw new ArgumentException($"{game.Title} for the {game.GameConsole} is not available used, try buying it new or try again later.");
             }
             else
                 throw new ArgumentException($"Your balance is to low to buy {game.Title} in {(isNew ? "new" : "used")} condition.");

@@ -14,7 +14,7 @@ namespace Api.Models
         public string Description { get; set; }
 
         [Required]
-        public GameConsole Console { get; set; }
+        public string GameConsole { get; set; }
 
         [Required]
         public double NewPrice { get; set; }
@@ -34,11 +34,11 @@ namespace Api.Models
         {
         }
 
-        public Game(string title, string description, GameConsole console, double newPrice, double usedPrice, int newStock, int usedStock)
+        public Game(string title, string description, string gameConsole, double newPrice, double usedPrice, int newStock, int usedStock)
         {
             this.Title = title;
             this.Description = description;
-            this.Console = console;
+            this.GameConsole = gameConsole;
             this.NewPrice = newPrice;
             this.UsedPrice = usedPrice;
             this.NewStock = newStock;

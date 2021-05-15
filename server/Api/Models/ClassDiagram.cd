@@ -25,12 +25,9 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAWAAAAEAAAgAEAAAAEAAAAAAAAACAAAAAAAAgAAAAA=</HashCode>
+      <HashCode>AAUAAAAEAAAgAEAAAAEAAAAAAAQACAAAAAAAAgAAAAA=</HashCode>
       <FileName>Models\Game.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Console" />
-    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Customers" />
     </ShowAsCollectionAssociation>
@@ -49,12 +46,5 @@
       <FileName>Models\IGameRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Enum Name="Api.Models.GameConsole" Collapsed="true">
-    <Position X="11.5" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAACHAEAAAAAAAAAEAAAAQAgQAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\GameConsole.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

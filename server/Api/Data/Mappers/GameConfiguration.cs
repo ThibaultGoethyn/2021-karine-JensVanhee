@@ -13,7 +13,7 @@ namespace Api.Data.Mappers
 
             builder.Property(x => x.Title).IsRequired().HasMaxLength(50);
             builder.Property(x => x.Description);
-            builder.Property(x => x.Console).IsRequired();
+            builder.Property(x => x.GameConsole).IsRequired();
             builder.Property(x => x.NewPrice).IsRequired();
             builder.Property(x => x.UsedPrice).IsRequired();
             builder.Property(x => x.NewStock).IsRequired();

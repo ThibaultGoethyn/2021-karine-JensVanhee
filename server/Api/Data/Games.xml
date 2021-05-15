@@ -4,7 +4,7 @@
 	<game>
 		<title>Skate 3</title>
 		<description>Skate 3 is a skateboarding extreme sports game set in an open world environment and played from a third-person perspective. The game takes place in the fictional city of Port Carverton, which embraces skateboarding, unlike the "skateboarding is a crime" mentality portrayed in the second game.</description>
-		<console>PLAYSTATION_3</console>
+		<console>Playstation 3</console>
 		<newPrice>19.98</newPrice>
 		<usedPrice>9.98</usedPrice>
 		<newStock>1</newStock>
@@ -13,7 +13,7 @@
 	<game>
 		<title>Uncharted Drake's Fortune</title>
 		<description>Combining platforming and third-person shooter elements, the game covers the journey of fortune hunter Nathan Drake, supposed descendant of the English explorer Francis Drake, as he seeks the lost treasure of El Dorado with the help of journalist Elena Fisher and friend and mentor Victor Sullivan.</description>
-		<console>PLAYSTATION_3</console>
+		<console>Playstation 3</console>
 		<newPrice>19.98</newPrice>
 		<usedPrice>4.98</usedPrice>
 		<newStock>5</newStock>
@@ -22,7 +22,7 @@
 	<game>
 		<title>Uncharted 2 Among Thieves</title>
 		<description>Set two years after the events of Drake's Fortune, Among Thieves follows Nathan Drake and Chloe Frazer as they search for the entrance to the lost city of Shambhala and the fabled Cintamani Stone in a race against Serbian war criminal Zoran Lazarević and his army of mercenaries.</description>
-		<console>PLAYSTATION_3</console>
+		<console>Playstation 3</console>
 		<newPrice>19.98</newPrice>
 		<usedPrice>4.98</usedPrice>
 		<newStock>3</newStock>
@@ -31,7 +31,7 @@
 	<game>
 		<title>Uncharted 3 Drake's Deception</title>
 		<description>Embark on a journey with the intrepid treasure hunter Nathan Drake in his quest for the fabulous 'Atlantis of the desert'. Swap the streets of London for the Arabian Peninsula and survive treacherous situations and dangerous enemies.</description>
-		<console>PLAYSTATION_3</console>
+		<console>Playstation 3</console>
 		<newPrice>19.98</newPrice>
 		<usedPrice>4.98</usedPrice>
 		<newStock>4</newStock>
@@ -40,7 +40,7 @@
 	<game>
 		<title>Call Of Duty Black Ops II</title>
 		<description>Black Ops II is the first game in the series to feature futuristic warfare technology and the first to present branching storylines driven by player choice as well as selecting weapons before starting story mode missions.</description>
-		<console>PLAYSTATION_3</console>
+		<console>Playstation 3</console>
 		<newPrice>29.98</newPrice>
 		<usedPrice>14.98</usedPrice>
 		<newStock>0</newStock>
@@ -50,7 +50,7 @@
 	<game>
 		<title>Grand Theft Auto V</title>
 		<description>Grand Theft Auto V is an action-adventure game played from either a third-person or first-person perspective. Players complete missions—linear scenarios with set objectives—to progress through the story. Outside of the missions, players may freely roam the open world.</description>
-		<console>PLAYSTATION_4</console>
+		<console>Playstation 4</console>
 		<newPrice>23.98</newPrice>
 		<usedPrice>12.98</usedPrice>
 		<newStock>20</newStock>
@@ -59,7 +59,7 @@
 	<game>
 		<title>Marvel's Spider-Man</title>
 		<description>Marvel's Spider-Man is an open-world third-person action-adventure game, in which the player controls Peter Parker, under his superhero identity Spider-Man, through Manhattan, New York City to fight crime. ... Using tokens rewarded from objectives, Spider-Man can unlock and craft new gadgets, suits, and Suit Mods.</description>
-		<console>PLAYSTATION_4</console>
+		<console>Playstation 4</console>
 		<newPrice>39.98</newPrice>
 		<usedPrice>34.98</usedPrice>
 		<newStock>10</newStock>
@@ -68,7 +68,7 @@
 	<game>
 		<title>Call Of Duty Black Ops Cold War</title>
 		<description>Call of Duty: Black Ops Cold War is set during the Cold War in the early 1980s. The story follows Green Beret turned CIA SAD/SOG operative Russell Adler and his mission to stop a USSR extremist group in 1981. ... Like Modern Warfare, Cold War also support cross-platform play and cross-platform progression.</description>
-		<console>PLAYSTATION_4</console>
+		<console>Playstation 4</console>
 		<newPrice>69.98</newPrice>
 		<usedPrice>54.98</usedPrice>
 		<newStock>20</newStock>
@@ -78,7 +78,7 @@
 	<game>
 		<title>Call Of Duty Black Ops Cold War</title>
 		<description>Call of Duty: Black Ops Cold War is set during the Cold War in the early 1980s. The story follows Green Beret turned CIA SAD/SOG operative Russell Adler and his mission to stop a USSR extremist group in 1981. ... Like Modern Warfare, Cold War also support cross-platform play and cross-platform progression.</description>
-		<console>PLAYSTATION_5</console>
+		<console>Playstation 5</console>
 		<newPrice>79.98</newPrice>
 		<usedPrice>69.98</usedPrice>
 		<newStock>25</newStock>
@@ -87,7 +87,7 @@
 	<game>
 		<title>Godfall</title>
 		<description>Godfall is a brand-new, next-gen looter-slasher, set in a bright fantasy universe filled with heroic knights and arcane magic. Embark on adventure in a fantasy action RPG that utilizes high-impact third-person melee combat to engage players as they hunt for loot, don legendary armor sets and defeat vicious enemies.</description>
-		<console>PLAYSTATION_5</console>
+		<console>Playstation 5</console>
 		<newPrice>49.98</newPrice>
 		<usedPrice>35.98</usedPrice>
 		<newStock>24</newStock>
@@ -96,7 +96,7 @@
 	<game>
 		<title>Sackboy A Big Adventure</title>
 		<description>Sackboy: A Big Adventure is a platform game. Unlike previous LittleBigPlanet entries with 2.5D platforming, it features a range of perspectives and 3D movement. Players control Sackboy on world maps which give access to a multitude of platforming levels and bonus content.</description>
-		<console>PLAYSTATION_5</console>
+		<console>Playstation 5</console>
 		<newPrice>69.98</newPrice>
 		<usedPrice>59.98</usedPrice>
 		<newStock>18</newStock>
@@ -106,7 +106,7 @@
 	<game>
 		<title>Playstation All-Stars Battle Royale</title>
 		<description>PlayStation All-Stars Battle Royale is a fighting game. Up to four players can battle each other using characters from various Sony franchises such as God of War, PaRappa the Rapper, Infamous, and Sly Cooper, as well as third-party franchises like BioShock.</description>
-		<console>PLAYSTATION_VITA</console>
+		<console>Playstation Vita</console>
 		<newPrice>19.98</newPrice>
 		<usedPrice>14.98</usedPrice>
 		<newStock>1</newStock>
@@ -116,7 +116,7 @@
 	<game>
 		<title>Gears of War Judgement</title>
 		<description>Gameplay. Like its predecessors, Gears of War: Judgment is a third-person shooter, with an "over the shoulder" perspective and cover system. The main campaign is divided into six chapters, each with several missions. ... Aftermath does not award stars or offer the harder setting seen in the Gears of War: Judgment campaign.</description>
-		<console>XBOX_360</console>
+		<console>Xbox 360</console>
 		<newPrice>9.98</newPrice>
 		<usedPrice>4.98</usedPrice>
 		<newStock>2</newStock>
@@ -126,7 +126,7 @@
 	<game>
 		<title>Forza Horizon 4</title>
 		<description>Forza Horizon 4 is a racing video game set in an open world environment based in a fictionalised Great Britain, with regions that include condensed representations of Edinburgh, the Lake District (including Derwentwater), Ambleside and the Cotswolds (including Broadway), among others.</description>
-		<console>XBOX_ONE</console>
+		<console>Xbox One</console>
 		<newPrice>64.98</newPrice>
 		<usedPrice>54.98</usedPrice>
 		<newStock>17</newStock>
@@ -136,7 +136,7 @@
 	<game>
 		<title>Pokémon Diamond</title>
 		<description>The game contains 107 new Pokémon and chronicles the adventures of a new Pokémon Trainer who strives to become the Pokémon League Champion, collecting and training various species of Pokémon along the way.</description>
-		<console>NINTENDO_DS</console>
+		<console>Nintendo DS</console>
 		<newPrice>79.98</newPrice>
 		<usedPrice>39.98</usedPrice>
 		<newStock>1</newStock>
@@ -146,7 +146,7 @@
 	<game>
 		<title>Luigi's Mansion</title>
 		<description>The original Luigi's mansion, which was a launch game for the Nintendo GameCube system in 2001, is coming to the Nintendo 3DS family of systems. This remake has an updated look and new features, like a map that displays on the bottom screen.</description>
-		<console>NINTENDO_3DS</console>
+		<console>Nintendo 3DS</console>
 		<newPrice>35.98</newPrice>
 		<usedPrice>30.98</usedPrice>
 		<newStock>3</newStock>
@@ -156,7 +156,7 @@
 	<game>
 		<title>Super Smash Bros Ultimate</title>
 		<description>Super Smash Bros. is a Japanese series of crossover fighting video games published by Nintendo, and primarily features characters from various Nintendo franchises. The series was created by Masahiro Sakurai, who has directed every game in the series.</description>
-		<console>NINTENDO_SWITCH</console>
+		<console>Nintendo Switch</console>
 		<newPrice>64.98</newPrice>
 		<usedPrice>54.98</usedPrice>
 		<newStock>7</newStock>

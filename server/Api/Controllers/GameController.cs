@@ -66,7 +66,7 @@ namespace Api.Controllers
             {
                 Title = game.Title,
                 Description = game.Description,
-                Console = game.Console,
+                GameConsole = game.GameConsole,
                 NewPrice = game.NewPrice,
                 UsedPrice = game.UsedPrice,
                 NewStock = game.NewStock,

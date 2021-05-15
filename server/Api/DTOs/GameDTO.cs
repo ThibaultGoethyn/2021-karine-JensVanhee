@@ -12,7 +12,7 @@ namespace Api.DTOs
         public string Description { get; set; }
 
         [Required]
-        public GameConsole Console { get; set; }
+        public string GameConsole { get; set; }
 
         [Required]
         public double NewPrice { get; set; }

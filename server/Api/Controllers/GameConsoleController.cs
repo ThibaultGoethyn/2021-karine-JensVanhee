@@ -23,16 +23,15 @@ namespace Api.Controllers
         /// <summary>
         /// Get the games from a console
         /// </summary>
-        /// <param name="console">the console of the games: 0 = Playstation 3 | 1 = Playstation 4 | 2 = Playstation 5 | 3 = Playstation Vita |
-        /// 4 = Xbox 360 | 5 = Xbox One | 6 = Nintendo DS | 7 = Nintendo 3DS | 8 = Nintendo Switch
+        /// <param name="gameConsole">the game console of the games (for example Playstation 4, Nintendo Switch, Xbox One)
         /// </param>
         /// <returns>Array containing all the games from one console</returns>
         [HttpGet("GetAllGamesByConsole/{console}")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IEnumerable<Game> GetAllGamesByConsole(GameConsole console)
+        public IEnumerable<Game> GetAllGamesByGameConsole(string gameConsole)
         {
-            IEnumerable<Game> games = _gameRepository.GetByConsole(console).OrderBy(x => x.Title);
+            IEnumerable<Game> games = _gameRepository.GetByGameConsole(gameConsole).OrderBy(x => x.Title);
 
             if (games == null)
                 throw new ArgumentNullException("No games were found");
