@@ -16,7 +16,7 @@ export class GameDataService {
   private _games = GAMES;
 
   get games$() : Observable<Game[]> {
-    return this.http.get(`${environment.apiUrl}/Games/`).pipe(
+    return this.http.get(`${environment.apiUrl}/Game/`).pipe(
       tap(console.log),
       map(
         (list: any[]) : Game[] => list.map(Game.fromJSON)));
