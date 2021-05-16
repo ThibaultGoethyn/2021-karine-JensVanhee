@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { EMPTY, Observable, Subject, of } from 'rxjs';
+import { catchError, filter } from 'rxjs/operators';
 import { GameDataService } from '../game-data.service';
 import { Game } from '../game.model';
 
@@ -9,8 +10,9 @@ import { Game } from '../game.model';
   styleUrls: ['./game-list.component.css']
 })
 
-export class GameListComponent {
-  private _fetchGames$: Observable<Game[]> = this._gameDataService.games$;
+export class GameListComponent implements OnInit {
+  private _fetchGames$: Observable<Game[]>
+  public errorMessage: string = '';
   public filterGameTitle: string;
   public filterGame$ = new Subject<string>();
   
@@ -18,7 +20,20 @@ export class GameListComponent {
     this.filterGame$.subscribe(val => this.filterGameTitle = val);
   }
 
+  ngOnInit(): void {
+    this._fetchGames$ = this._gameDataService.games$.pipe(
+      catchError(err => {
+        this.errorMessage = err;
+        return EMPTY;
+      })
+    );
+  }
+
   get games$(): Observable<Game[]> {
     return this._fetchGames$;
+  }
+
+  addNewGame(game:Game){
+    this._gameDataService.addNewGame(game);
   }
 }

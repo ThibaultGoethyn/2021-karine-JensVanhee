@@ -5,13 +5,15 @@ import { MaterialModule} from './../material/material.module';
 import { GameListComponent } from './game-list/game-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GameFilterPipe } from './game-filter.pipe';
+import { AddGameComponent } from './add-game/add-game.component';
 
 
 @NgModule({
   declarations: [
     GameComponent,
     GameListComponent,
-    GameFilterPipe
+    GameFilterPipe,
+    AddGameComponent
   ],
   imports: [
     CommonModule,

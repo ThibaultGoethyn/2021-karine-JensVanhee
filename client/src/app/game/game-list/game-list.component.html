@@ -1,19 +1,32 @@
-<div fxLayout="row" fxLayoutGap="2%">
-<mat-card>
-  <h3>Filters</h3>
-  <mat-form-field>
-    <input matInput placeholder="Title" type="text" (keyup)="this.filterGame$.next($any($event.target).value)"/>
-  </mat-form-field>
-</mat-card>
-
-<div fxLayout="row wrap" fxLayoutGap="1% grid" fxLayoutAlign="start none">
-  <div 
-    class="game"
-    *ngFor="let localGame of (games$ | async | gameFilter: filterGameTitle)"
-    fxFlex="25%"
-    fxFlex.xs="100%"
-  >
-    <app-game [game]="localGame"></app-game>
+<div fxLayout="column" fxLayoutGap="2%">
+  <app-add-game (newGame)="addNewGame($event)"></app-add-game>
+  <div fxLayout="row" fxLayoutGap="2%">
+    <mat-card>
+      <h3>Filters</h3>
+      <mat-form-field>
+        <input matInput placeholder="Title" type="text" (keyup)="this.filterGame$.next($any($event.target).value)"/>
+      </mat-form-field>
+    </mat-card>
+    <div *ngIf="(games$ | async) as games; else loadingOrError">
+    <div fxLayout="row wrap" fxLayoutGap="1% grid" fxLayoutAlign="start none">
+      <div 
+        class="game"
+        *ngFor="let localGame of (games$ | async | gameFilter: filterGameTitle)"
+        fxFlex="25%"
+        fxFlex.xs="100%"
+      >
+        <app-game [game]="localGame"></app-game>
+      </div>
+    </div>
   </div>
-</div>
+    <ng-template #loadingOrError>
+      <mat-card class="error" *ngIf="errorMessage; else loading">
+        Error loading the game list: {{errorMessage}}. <br/>
+        Please try again later.
+      </mat-card>
+        <ng-template #loading>
+            <mat-spinner></mat-spinner>
+        </ng-template>
+    </ng-template>
+  </div>
 </div>

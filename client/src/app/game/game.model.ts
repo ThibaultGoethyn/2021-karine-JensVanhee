@@ -10,8 +10,8 @@ interface GameJson {
 }
 
 export class Game {
+    private _gameId: number
     constructor(
-        private _gameId: number,
         private _title: string, 
         private _description: string,
         private _gameConsole: string,
@@ -23,7 +23,6 @@ export class Game {
   
     static fromJSON(json: GameJson): Game {
         const game = new Game(
-            json.gameId,
             json.title,
             json.description,
             json.gameConsole,
@@ -34,6 +33,19 @@ export class Game {
 
         return game;
     }
+
+    toJSON(): GameJson {
+        return <GameJson>{
+            title: this.title,
+            description: this.description,
+            gameConsole: this.gameConsole,
+            newPrice: this.newPrice,
+            usedPrice: this.usedPrice,
+            newStock: this.newStock,
+            usedStock: this.usedPrice
+        };
+    }
+
     get gameId(): number {
         return this._gameId;
     }

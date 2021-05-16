@@ -1,0 +1,9 @@
+<mat-card>
+    <h3>Add a new game</h3>
+    <mat-form-field>
+        <input matInput placeholder="Title" type="text" #newgametitle />
+    </mat-form-field>
+    <button (click)="addGame(newgametitle)" mat-raised-button>
+        add game
+    </button>
+</mat-card>
