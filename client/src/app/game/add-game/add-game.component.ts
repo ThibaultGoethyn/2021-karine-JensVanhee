@@ -14,7 +14,7 @@ export class AddGameComponent implements OnInit {
   }
 
   addGame(gameTitle: HTMLInputElement): boolean {
-    const game = new Game(gameTitle.value, "", "", 0,0,0,0,)
+    const game = new Game(gameTitle.value, "eeeeeeeeeeeeeeeeeeeeeeeeeee", "Playstation 3", 20,20,20,20)
     this.newGame.emit(game);
     return false;
   }

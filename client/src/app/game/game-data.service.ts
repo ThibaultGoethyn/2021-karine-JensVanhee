@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Game } from './game.model';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError, pipe, EMPTY } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { Observable, throwError, pipe, EMPTY, BehaviorSubject, Subject, merge } from 'rxjs';
+import { catchError, map, scan, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -10,7 +10,15 @@ import { environment } from 'src/environments/environment';
 })
 
 export class GameDataService {
+
+  private _addedGames$ = new Subject<Game>();
+  private _allGames$: Observable<Game[]> = merge(this.games$, this._addedGames$).pipe(tap(console.log),scan((acc: Game[], value: Game) => [...acc, value]));
+ 
   constructor(private http: HttpClient) {}
+
+  get allGames$(): Observable<Game[]> {
+    return this._allGames$;
+  }
 
   get games$() : Observable<Game[]> {
     return this.http.get(`${environment.apiUrl}/Game/`).pipe(
@@ -20,10 +28,14 @@ export class GameDataService {
         (list: any[]) : Game[] => list.map(Game.fromJSON)));
   }
 
-  addNewGame(game: Game): Observable<Game>{
+  addNewGame(game: Game){
+    console.log(game);
     return this.http
       .post(`${environment.apiUrl}/game/`, game.toJSON())
-      .pipe(tap(console.log),catchError(this.handleError), map(Game.fromJSON));
+      .pipe(tap(console.log),catchError(this.handleError), map(Game.fromJSON))
+      .subscribe((game:Game) => {
+        this._addedGames$.next(game);
+      });
   }
 
   handleError(err: any): Observable<never> {

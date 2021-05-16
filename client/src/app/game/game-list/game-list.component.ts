@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EMPTY, Observable, Subject, of } from 'rxjs';
-import { catchError, filter } from 'rxjs/operators';
+import { EMPTY, Observable, Subject, of, merge } from 'rxjs';
+import { catchError, filter, scan } from 'rxjs/operators';
 import { GameDataService } from '../game-data.service';
 import { Game } from '../game.model';
 
@@ -21,7 +21,7 @@ export class GameListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._fetchGames$ = this._gameDataService.games$.pipe(
+    this._fetchGames$ = this._gameDataService.allGames$.pipe(
       catchError(err => {
         this.errorMessage = err;
         return EMPTY;
