@@ -1,0 +1,33 @@
+[ 
+    {
+        "gameId":1,
+        "title":"Marvel's Spider-Man",
+        "description":"Marvel's Spider-Man is an open-world third-person action-adventure game, in which the player controls Peter Parker, under his superhero identity Spider-Man, through Manhattan, New York City to fight crime. ... Using tokens rewarded from objectives, Spider-Man can unlock and craft new gadgets, suits, and Suit Mods.",
+        "gameConsole":"Playstation 4",
+        "newPrice":39.98,
+        "usedPrice":34.98,
+        "newStock":10,
+        "usedStock":7,
+        "customers":null
+    },{
+        "gameId":2,
+        "title":"Playstation All-Stars Battle Royale",
+        "description":"PlayStation All-Stars Battle Royale is a fighting game. Up to four players can battle each other using characters from various Sony franchises such as God of War, PaRappa the Rapper, Infamous, and Sly Cooper, as well as third-party franchises like BioShock.",
+        "gameConsole":"Playstation Vita",
+        "newPrice":19.98,
+        "usedPrice":14.98,
+        "newStock":1,
+        "usedStock":4,
+        "customers":null
+    },{
+        "gameId":3,
+        "title":"Pokémon Diamond",
+        "description":"The game contains 107 new Pokémon and chronicles the adventures of a new Pokémon Trainer who strives to become the Pokémon League Champion, collecting and training various species of Pokémon along the way.",
+        "gameConsole":"Nintendo DS",
+        "newPrice":79.98,
+        "usedPrice":39.98,
+        "newStock":1,
+        "usedStock":8,
+        "customers":null
+    }
+]

@@ -4,7 +4,7 @@
     <mat-card>
       <h3>Filters</h3>
       <mat-form-field>
-        <input matInput placeholder="Title" type="text" (keyup)="this.filterGame$.next($any($event.target).value)"/>
+        <input data-cy="filterInput" matInput placeholder="Title" type="text" (keyup)="this.filterGame$.next($any($event.target).value)"/>
       </mat-form-field>
     </mat-card>
     <div *ngIf="(games$ | async) as games; else loadingOrError">
@@ -15,7 +15,7 @@
         fxFlex="25%"
         fxFlex.xs="100%"
       >
-        <app-game [game]="localGame"></app-game>
+        <app-game [game]="localGame" data-cy="gameCardList"></app-game>
       </div>
     </div>
   </div>

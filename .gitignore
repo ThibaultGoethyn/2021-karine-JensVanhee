@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/client/cypress/fixtures/users.json
+/client/cypress/fixtures/profile.json
+/client/cypress/fixtures/example.json
+/client/cypress/integration/examples
