@@ -1,9 +1,62 @@
 <mat-card>
     <h3>Add a new game</h3>
-    <mat-form-field>
-        <input matInput placeholder="Title" type="text" #newgametitle />
-    </mat-form-field>
-    <button (click)="addGame(newgametitle)" mat-raised-button>
-        add game
-    </button>
+    <form [formGroup]="gameFG" (ngSubmit)="submitGame()">
+        <div fxLayout="column">
+            <div fxLayout="row" fxLayoutAlign="space-start center" fxLayoutGap="11.25%">
+                <mat-form-field>
+                    <input matInput placeholder="Title" type="text" #newGame formControlName="title" aria-label="title"/>
+                    <mat-error *ngIf="gameFG.get('title')?.errors">
+                        {{ getErrorMessage(gameFG.get('title')['errors'])}}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Console" type="text" #newGame formControlName="gameConsole" aria-label="gameConsole"/>
+                    <mat-error *ngIf="gameFG.get('gameConsole')?.errors">
+                        {{ getErrorMessage(gameFG.get('gameConsole')['errors'])}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <mat-form-field style="width: 510px;">
+                <textarea matInput placeholder="Description" type="text" #newGame formControlName="description" aria-lavel="description" rows="5" >
+                </textarea>
+            </mat-form-field>
+            <div fxLayout="row" fxLayoutAlign="space-start center" fxLayoutGap="11.25%">
+            <mat-form-field>
+                <input matInput placeholder="New price" type="text" #newGame formControlName="newPrice" aria-label="new price"/>
+                <mat-error *ngIf="gameFG.get('newPrice')?.errors">
+                    {{ getErrorMessage(gameFG.get('newPrice')['errors'])}}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Used price" type="text" #newGame formControlName="usedPrice" aria-label="used price"/>
+                <mat-error *ngIf="gameFG.get('newPrice')?.errors">
+                    {{ getErrorMessage(gameFG.get('newPrice')['errors'])}}
+                </mat-error>
+            </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-start center" fxLayoutGap="11.25%">
+            <mat-form-field>
+                <input matInput placeholder="New stock" type="text" #newGame formControlName="newStock" aria-label="new stock"/>
+                <mat-error *ngIf="gameFG.get('newPrice')?.errors">
+                    {{ getErrorMessage(gameFG.get('newPrice')['errors'])}}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Used stock" type="text" #newGame formControlName="usedStock" aria-label="used stock"/>
+                <mat-error *ngIf="gameFG.get('newPrice')?.errors">
+                    {{ getErrorMessage(gameFG.get('newPrice')['errors'])}}
+                </mat-error>
+            </mat-form-field>
+            </div>
+            <button style="width: 150px;" type="submit" mat-raised-button [disabled]="!gameFG.valid">
+                add game
+            </button>
+        </div>
+    </form>
 </mat-card>
+
+<!-- Usefull for debugging
+{{ gameFG.value | json  }}
+{{ gameFG.status | json  }}
+{{ gameFG.valid | json  }}
+-->
