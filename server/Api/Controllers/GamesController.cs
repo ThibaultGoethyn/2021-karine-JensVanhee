@@ -1,5 +1,7 @@
 ﻿using Api.DTOs;
 using Api.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,14 +13,17 @@ namespace Api.Controllers
     [Produces("application/json")]
     [ApiConventionType(typeof(DefaultApiConventions))]
     [Route("api/[controller]")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
-    public class GameController : ControllerBase
+    public class GamesController : ControllerBase
     {
         private readonly IGameRepository _gameRepository;
+        private readonly ICustomerRepository _customerRepository;
 
-        public GameController(IGameRepository gameRepository)
+        public GamesController(IGameRepository gameRepository, ICustomerRepository customerRepository)
         {
             _gameRepository = gameRepository;
+            _customerRepository = customerRepository;
         }
 
         /// <summary>
@@ -26,6 +31,7 @@ namespace Api.Controllers
         /// </summary>
         /// <returns>Array containing all the games</returns>
         [HttpGet("")]
+        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IEnumerable<Game> GetAllGames()

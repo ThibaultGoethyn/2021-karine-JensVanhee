@@ -21,7 +21,7 @@ export class GameDataService {
   }
 
   get games$() : Observable<Game[]> {
-    return this.http.get(`${environment.apiUrl}/Game/`).pipe(
+    return this.http.get(`${environment.apiUrl}/games/`).pipe(
       tap(console.log),
       catchError(this.handleError),
       map(
@@ -31,7 +31,7 @@ export class GameDataService {
   addNewGame(game: Game){
     console.log(game);
     return this.http
-      .post(`${environment.apiUrl}/game/`, game.toJSON())
+      .post(`${environment.apiUrl}/games/`, game.toJSON())
       .pipe(tap(console.log),catchError(this.handleError), map(Game.fromJSON))
       .subscribe((game:Game) => {
         this._addedGames$.next(game);

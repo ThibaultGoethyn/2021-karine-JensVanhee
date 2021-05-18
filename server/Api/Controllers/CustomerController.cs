@@ -1,6 +1,5 @@
 ﻿using Api.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 
 namespace Api.Controllers
 {
