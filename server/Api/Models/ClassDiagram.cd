@@ -9,7 +9,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>QAAAAEAAACAAAAAIAAgAAAAAAAAAABAGAAAAAAABAAA=</HashCode>
+      <HashCode>QAAAAEAAACAAAAAIAAgAAAAAAAAAABAEAAAAAAABAAA=</HashCode>
       <FileName>Models\Customer.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -35,14 +35,14 @@
   <Interface Name="Api.Models.ICustomerRepository">
     <Position X="1.5" Y="4.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>gAYAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAIA=</HashCode>
+      <HashCode>gAYAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\ICustomerRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Api.Models.IGameRepository">
     <Position X="6.5" Y="4.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>gAYAAAAAAAAAAAAAAAAAAgAAAAEACAAAAgAAAAAAAIA=</HashCode>
+      <HashCode>gAYAAAAAAAEAAAAAAAAAAAAAAAEACAAAAgAAAAAAAIA=</HashCode>
       <FileName>Models\IGameRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>

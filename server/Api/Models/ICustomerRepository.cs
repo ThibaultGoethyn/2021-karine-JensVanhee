@@ -2,11 +2,10 @@
 {
     public interface ICustomerRepository
     {
-        Customer GetById(int customerId);
+        Customer GetByEmail(string email);
 
         void Add(Customer customer);
         void Update(Customer customer);
-        void Delete(Customer customer);
         void SaveChanges();
     }
 }

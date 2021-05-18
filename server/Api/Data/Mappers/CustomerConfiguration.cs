@@ -12,10 +12,9 @@ namespace Api.Data.Mappers
 
             builder.HasKey(x => x.CustomerId);
 
-            builder.Property(x => x.Firstname).IsRequired();
-            builder.Property(x => x.Lastname).IsRequired();
-            builder.Property(x => x.Email).IsRequired();
-            builder.Property(x => x.Password).IsRequired();
+            builder.Property(x => x.Firstname).IsRequired().HasMaxLength(50);
+            builder.Property(x => x.Lastname).IsRequired().HasMaxLength(50);
+            builder.Property(x => x.Email).IsRequired().HasMaxLength(100);
             builder.Property(x => x.Balance);
 
             builder.HasMany(x => x.Games).WithMany(x => x.Customers);

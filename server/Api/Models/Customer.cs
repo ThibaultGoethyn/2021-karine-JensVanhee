@@ -18,9 +18,6 @@ namespace Api.Models
         [Required]
         public string Email { get; set; }
 
-        [Required]
-        public string Password { get; set; }
-
         public double Balance { get; set; }
 
         public ICollection<Game> Games { get; set; }
@@ -32,12 +29,11 @@ namespace Api.Models
 
         }
 
-        public Customer(string firstname, string lastname, string email, string password)
+        public Customer(string firstname, string lastname, string email)
         {
             this.Firstname = firstname;
             this.Lastname = lastname;
             this.Email = email;
-            this.Password = password;
         }
         #endregion
 

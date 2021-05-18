@@ -3,10 +3,12 @@ using Api.Data.Repositories;
 using Api.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace Api
 {
@@ -28,6 +30,29 @@ namespace Api
             services.AddScoped<DataInitializer>();
             services.AddScoped<IGameRepository, GameRepository>();
             services.AddScoped<ICustomerRepository, CustomerRepository>();
+
+            services.AddIdentity<IdentityUser, IdentityRole>(cfg => cfg.User.RequireUniqueEmail = true).AddEntityFrameworkStores<Context>();
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Password requirement settings
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequiredLength = 6;
+                options.Password.RequiredUniqueChars = 1;
+
+                // Lockout settings
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.AllowedForNewUsers = true;
+
+                // User settings
+                options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+                options.User.RequireUniqueEmail = true;
+            });
+
             services.AddOpenApiDocument(c =>
             {
                 c.DocumentName = "apidocs";
@@ -59,7 +84,7 @@ namespace Api
                 endpoints.MapControllers();
             });
 
-            dataInitializer.InitializeData();
+            dataInitializer.InitializeData().Wait();
         }
     }
 }

@@ -20,14 +20,9 @@ namespace Api.Data.Repositories
             _customers.Add(customer);
         }
 
-        public void Delete(Customer customer)
+        public Customer GetByEmail(string email)
         {
-            _customers.Remove(customer);
-        }
-
-        public Customer GetById(int customerId)
-        {
-            return _customers.Include(x => x.Games).SingleOrDefault(x => x.CustomerId == customerId);
+            return _customers.Include(x => x.Games).SingleOrDefault(x => x.Email == email);
         }
 
         public void SaveChanges()

@@ -1,7 +1,8 @@
 ﻿using Api.Models;
-using System;
+using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Xml;
 
 namespace Api.Data
@@ -9,13 +10,15 @@ namespace Api.Data
     public class DataInitializer
     {
         private readonly Context _dbContext;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public DataInitializer(Context dbContext)
+        public DataInitializer(Context dbContext, UserManager<IdentityUser> userManager)
         {
             _dbContext = dbContext;
+            _userManager = userManager;
         }
 
-        public void InitializeData()
+        public async Task InitializeData()
         {
             _dbContext.Database.EnsureDeleted();
             if (_dbContext.Database.EnsureCreated())
@@ -49,30 +52,35 @@ namespace Api.Data
 
                 if (!_dbContext.Customers.Any())
                 {
-                    Customer Nathan = new Customer("Nathan", "Drake", "Nathan-Drake@gmail.com", "N@th@n123")
+                    Customer Nathan = new Customer("Nathan", "Drake", "Nathan-Drake@gmail.com")
                     {
                         // Uncharted Drakes Fortune, Uncharted 2 Among Thieves, Uncharted 3 Drake's Deception
                         Games = new List<Game> { games[1], games[2], games[3] },
                         Balance = 100.00
                     };
-                    Customer Danny = new Customer("Danny", "Johanson", "Danny-Johanson@gmail.com", "D@nny123")
+                    await CreateUser(Nathan.Email, "N@th@n123");
+
+                    Customer Danny = new Customer("Danny", "Johanson", "Danny-Johanson@gmail.com")
                     {
                         // Call Of Duty Black Ops II, Marvel's Spider-Man, Call Of Duty Black Ops Cold War [PS4], Pokémon Diamond
                         Games = new List<Game> { games[4], games[6], games[7], games[14] },
                         Balance = 48.54
                     };
-                    Customer Amber = new Customer("Amber", "Wright", "Amber-Wright@gmail.com", "@mber123")
-                    {
-                        // Sackboy A Big Adventure, Playstation All-Stars Battle Royale, Pokémon Diamond, Super Smash Bros. Ultimate
-                        Games = new List<Game> { games[10], games[11], games[14], games[16] },
-                        Balance = 89.45
-                    };
-                    Customer Jonathan = new Customer("Jonathan", "Loones", "Jonathan-Loones@gmail.com", "Jon@th@n123");
+                    await CreateUser(Danny.Email, "D@nny123");
 
-                    _dbContext.Customers.AddRange(Nathan, Danny, Amber, Jonathan);
+                    Customer Jonathan = new Customer("Jonathan", "Loones", "Jonathan-Loones@gmail.com");
+                    await CreateUser(Jonathan.Email, "Jon@th@n123");
+
+                    _dbContext.Customers.AddRange(Nathan, Danny, Jonathan);
                     _dbContext.SaveChanges();
                 }
             }       
+        }
+
+        private async Task CreateUser(string email, string password)
+        {
+            var user = new IdentityUser { UserName = email, Email = email };
+            await _userManager.CreateAsync(user, password);
         }
     }
 }
