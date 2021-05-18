@@ -10,6 +10,7 @@ import { Game } from '../game.model';
 })
 export class AddGameComponent implements OnInit {
   public gameFG: FormGroup;
+  public confirmationMessage: string = '';
   
   constructor(
     private _gameDataService: GameDataService

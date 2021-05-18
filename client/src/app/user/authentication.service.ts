@@ -19,6 +19,7 @@ function parseJwt(token: string) {
 export class AuthenticationService {
   private readonly _tokenKey = 'currentUser';
   private _user$: BehaviorSubject<string>;
+  public redirectUrl: string = null;
 
   constructor(private http: HttpClient) {
     let parsedToken = parseJwt(localStorage.getItem(this._tokenKey));

@@ -126,7 +126,12 @@ export class RegisterComponent implements OnInit {
       .subscribe(
         (val) => {
           if (val) {
-            this.router.navigate(['/game/list']);
+            if (this.authService.redirectUrl) {
+              this.router.navigateByUrl(this.authService.redirectUrl);
+              this.authService.redirectUrl = undefined;
+            } else {
+              this.router.navigate(['/game/list']);
+            }
           } else {
             this.errorMessage = `Could not login`;
           }

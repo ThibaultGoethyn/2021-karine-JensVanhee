@@ -54,6 +54,9 @@
         </div>
     </form>
 </mat-card>
+<mat-card class="confirmation" *ngIf="confirmationMessage" data-cy="appConfirmation">
+  {{ confirmationMessage }}
+</mat-card>
 
 <!-- Usefull for debugging
 {{ gameFG.value | json  }}
