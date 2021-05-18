@@ -3,11 +3,15 @@ import { CommonModule } from '@angular/common';
 import { GameComponent } from './game/game.component';
 import { MaterialModule} from './../material/material.module';
 import { GameListComponent } from './game-list/game-list.component';
-import { HttpClientModule } from '@angular/common/http';
 import { GameFilterPipe } from './game-filter.pipe';
 import { AddGameComponent } from './add-game/add-game.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
+const routes = [
+  { path: 'list', component: GameListComponent },
+  { path: 'add', component: AddGameComponent }
+]
 
 @NgModule({
   declarations: [
@@ -18,9 +22,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    HttpClientModule, 
+    MaterialModule,
     ReactiveFormsModule,
-    MaterialModule
+    RouterModule.forChild(routes)
   ],
   exports: [
     AddGameComponent, 
