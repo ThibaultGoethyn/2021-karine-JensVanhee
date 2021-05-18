@@ -23,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MaterialModule
   ],
   exports: [
+    AddGameComponent, 
     GameListComponent
   ]
 })

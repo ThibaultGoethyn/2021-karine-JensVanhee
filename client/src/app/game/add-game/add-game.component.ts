@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { GameDataService } from '../game-data.service';
 import { Game } from '../game.model';
 
 @Component({
@@ -8,9 +9,11 @@ import { Game } from '../game.model';
   styleUrls: ['./add-game.component.css']
 })
 export class AddGameComponent implements OnInit {
-  @Output() public newGame = new EventEmitter<Game>();
-  gameFG: FormGroup;
-  constructor() { }
+  public gameFG: FormGroup;
+  
+  constructor(
+    private _gameDataService: GameDataService
+  ) { }
 
   ngOnInit(): void {
     this.gameFG = new FormGroup({
@@ -24,11 +27,9 @@ export class AddGameComponent implements OnInit {
     });
   }
 
-  submitGame() {
-    const game = new Game(this.gameFG.value.title, this.gameFG.value.description, this.gameFG.value.gameConsole, 
-      this.gameFG.value.newPrice, this.gameFG.value.usedPrice, this.gameFG.value.newStock, this.gameFG.value.usedStock)
-    this.newGame.emit(game);
-    return false;
+  onSubmit() {
+    this._gameDataService.addNewGame(new Game(this.gameFG.value.title, this.gameFG.value.description, this.gameFG.value.gameConsole, 
+      this.gameFG.value.newPrice, this.gameFG.value.usedPrice, this.gameFG.value.newStock, this.gameFG.value.usedStock));
   }
 
   getErrorMessage(errors:any): string {

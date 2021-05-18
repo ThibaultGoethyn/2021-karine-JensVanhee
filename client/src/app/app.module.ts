@@ -6,16 +6,21 @@ import { AppComponent } from './app.component';
 
 import { GameModule } from './game/game.module';
 import { MaterialModule } from './material/material.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PageNotFoundComponent,
+    MainNavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     GameModule,
-    MaterialModule
+    MaterialModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

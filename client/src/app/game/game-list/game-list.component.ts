@@ -32,8 +32,4 @@ export class GameListComponent implements OnInit {
   get games$(): Observable<Game[]> {
     return this._fetchGames$;
   }
-
-  addNewGame(game:Game){
-    this._gameDataService.addNewGame(game);
-  }
 }
