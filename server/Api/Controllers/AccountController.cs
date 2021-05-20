@@ -68,7 +68,7 @@ namespace Api.Controllers
         public async Task<ActionResult<String>> Register(RegisterDTO model)
         {
             IdentityUser user = new IdentityUser { UserName = model.Email, Email = model.Email };
-            Customer customer = new Customer { Email = model.Email, Firstname = model.Firstname, Lastname = model.Lastname };
+            Customer customer = new Customer(model.Firstname, model.Lastname, model.Email);
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)
