@@ -36,7 +36,7 @@
               </mat-error>
             </mat-form-field>
             <mat-error *ngIf="user.get('passwordGroup').errors && user.get('passwordGroup').get('confirmPassword').touched &&
-                user.get('passwordGroup').get('password').touched">
+                user.get('passwordGroup').get('password').touched" data-cy="passwordError">
               {{ getErrorMessage(user.get('passwordGroup').errors) }}
             </mat-error>
           </span>

@@ -11,7 +11,8 @@
         </mat-card-content>
         <mat-card-actions fxLayout="row" style="width: 270px">
           <button style="margin-left: 10px;" mat-raised-button color="primary" type="submit" data-cy="login-button">Login</button>
-          <button style="margin-left: 100px;" mat-raised-button color="basic" [routerLink]="['/register']">Register</button>
+          <button style="margin-left: 100px;" mat-raised-button color="basic" data-cy="register-button" 
+                  [routerLink]="['/register']">Register</button>
         </mat-card-actions>
       </form>
       <mat-card class="error" *ngIf="errorMessage" data-cy="appError">
