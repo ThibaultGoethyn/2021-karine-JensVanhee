@@ -11,7 +11,9 @@ import { Game } from '../game.model';
 export class AddGameComponent implements OnInit {
   public gameFG: FormGroup;
   public confirmationMessage: string = '';
-  
+  public gameConsoles = ["Playstation 3", "Playstation 4", "Playstation 5", "Playstation Vita", "Xbox 360", "Xbox One",
+   "Nintendo DS", "Nintendo 3DS", "Nintendo Switch"]
+
   constructor(
     private _gameDataService: GameDataService
   ) { }
@@ -31,7 +33,10 @@ export class AddGameComponent implements OnInit {
   onSubmit() {
     this._gameDataService.addNewGame(new Game(this.gameFG.value.title, this.gameFG.value.description, this.gameFG.value.gameConsole, 
       this.gameFG.value.newPrice, this.gameFG.value.usedPrice, this.gameFG.value.newStock, this.gameFG.value.usedStock));
-  }
+
+      this.confirmationMessage = `The game ${this.gameFG.value.title} for the ${this.gameFG.value.gameConsole} was successfully added`;
+      this.gameFG.reset();
+    }
 
   getErrorMessage(errors:any): string {
     if (errors.required) {
