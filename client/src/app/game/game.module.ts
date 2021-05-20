@@ -7,10 +7,12 @@ import { GameFilterPipe } from './game-filter.pipe';
 import { AddGameComponent } from './add-game/add-game.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { DeleteGameComponent } from './delete-game/delete-game.component';
 
 const routes = [
   { path: 'list', component: GameListComponent },
-  { path: 'add', component: AddGameComponent }
+  { path: 'add', component: AddGameComponent },
+  { path: 'delete', component: DeleteGameComponent}
 ]
 
 @NgModule({
@@ -18,7 +20,8 @@ const routes = [
     GameComponent,
     GameListComponent,
     GameFilterPipe,
-    AddGameComponent
+    AddGameComponent,
+    DeleteGameComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +31,8 @@ const routes = [
   ],
   exports: [
     AddGameComponent, 
-    GameListComponent
+    GameListComponent,
+    DeleteGameComponent
   ]
 })
 export class GameModule { }

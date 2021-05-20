@@ -38,6 +38,11 @@ export class GameDataService {
       });
   }
 
+  deleteGame(gameId: number){
+    return this.http
+      .delete(`${environment.apiUrl}/games/delete/${gameId}`)
+  }
+
   handleError(err: any): Observable<never> {
     let errorMessage: string;
     if (err instanceof HttpErrorResponse) {

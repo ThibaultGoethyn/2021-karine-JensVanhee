@@ -1,0 +1,16 @@
+<mat-card>
+<h3>Delete a game</h3>
+    <div>
+    <mat-form-field style="width: 500px;">
+        <mat-label>Game</mat-label>                    
+        <mat-select aria-label="Game" #title >
+            <div *ngFor="let localGame of (games$ | async)" >
+                <mat-option [value]="localGame.title"> {{localGame.title}} | {{localGame.gameConsole}}</mat-option>
+            </div>       
+        </mat-select>   
+    </mat-form-field>
+     <button (click)="deleteGame(title)" mat-raised-button style="margin-left: 20px;">
+        Delete game
+    </button>
+    </div>  
+</mat-card>
