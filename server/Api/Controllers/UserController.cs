@@ -5,11 +5,11 @@ namespace Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomerController : ControllerBase
+    public class UserController : ControllerBase
     {
-        private readonly ICustomerRepository _customerRepository;
+        private readonly IUserRepository _customerRepository;
 
-        public CustomerController(ICustomerRepository customerRepository)
+        public UserController(IUserRepository customerRepository)
         {
             _customerRepository = customerRepository;
         }

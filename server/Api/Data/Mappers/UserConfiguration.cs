@@ -4,20 +4,19 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Api.Data.Mappers
 {
-    public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
+    public class UserConfiguration : IEntityTypeConfiguration<User>
     {
-        public void Configure(EntityTypeBuilder<Customer> builder)
+        public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.ToTable("Customers");
+            builder.ToTable("Users");
 
-            builder.HasKey(x => x.CustomerId);
+            builder.HasKey(x => x.UserId);
 
             builder.Property(x => x.Firstname).IsRequired().HasMaxLength(50);
             builder.Property(x => x.Lastname).IsRequired().HasMaxLength(50);
             builder.Property(x => x.Email).IsRequired().HasMaxLength(100);
-            builder.Property(x => x.Balance);
 
-            builder.HasMany(x => x.Games).WithMany(x => x.Customers);
+            builder.HasMany(x => x.Games).WithMany(x => x.Users);
         }
     }
 }

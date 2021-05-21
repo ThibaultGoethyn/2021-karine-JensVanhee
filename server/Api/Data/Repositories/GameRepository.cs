@@ -36,9 +36,9 @@ namespace Api.Data.Repositories
             return _games.Where(g => g.GameConsole == gameConsole).ToList();
         }
 
-        public IEnumerable<Game> GetByCustomer(Customer customer)
+        public IEnumerable<Game> GetByCustomer(User customer)
         {
-            return _games.Where(g => g.Customers.Contains(customer)).ToList();
+            return _games.Where(g => g.Users.Contains(customer)).ToList();
         }
 
         public Game GetById(int gameId)

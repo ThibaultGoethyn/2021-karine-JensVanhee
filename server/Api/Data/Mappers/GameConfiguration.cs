@@ -19,7 +19,7 @@ namespace Api.Data.Mappers
             builder.Property(x => x.NewStock).IsRequired();
             builder.Property(x => x.UsedStock);
 
-            builder.HasMany(x => x.Customers).WithMany(x => x.Games);
+            builder.HasMany(x => x.Users).WithMany(x => x.Games);
         }
     }
 }

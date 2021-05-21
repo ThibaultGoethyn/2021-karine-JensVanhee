@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Api.DTO
 {
-    public class CustomerDTO
+    public class UserDTO
     {
         [Required]
         public string FirstName { get; set; }
@@ -17,8 +17,6 @@ namespace Api.DTO
 
         [Required]
         public string Password { get; set; }
-
-        public double Balance { get; set; }
 
         public List<Game> Games { get; set; }
     }

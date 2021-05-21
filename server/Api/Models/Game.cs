@@ -26,7 +26,7 @@ namespace Api.Models
 
         public int UsedStock { get; set; }
 
-        public ICollection<Customer> Customers { get; set; }
+        public ICollection<User> Users { get; set; }
         #endregion
 
         #region Constructors

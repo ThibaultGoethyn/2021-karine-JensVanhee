@@ -20,13 +20,13 @@ namespace Api.Controllers
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly ICustomerRepository _customerRepository;
+        private readonly IUserRepository _customerRepository;
         private readonly IConfiguration _config;
 
         public AccountController(
           SignInManager<IdentityUser> signInManager,
           UserManager<IdentityUser> userManager,
-          ICustomerRepository customerRepository,
+          IUserRepository customerRepository,
           IConfiguration config)
         {
             _signInManager = signInManager;
@@ -68,7 +68,7 @@ namespace Api.Controllers
         public async Task<ActionResult<String>> Register(RegisterDTO model)
         {
             IdentityUser user = new IdentityUser { UserName = model.Email, Email = model.Email };
-            Customer customer = new Customer(model.Firstname, model.Lastname, model.Email);
+            User customer = new User(model.Firstname, model.Lastname, model.Email);
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)

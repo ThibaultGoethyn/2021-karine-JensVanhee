@@ -4,23 +4,23 @@ using System.Linq;
 
 namespace Api.Data.Repositories
 {
-    public class CustomerRepository : ICustomerRepository
+    public class UserRepository : IUserRepository
     {
         private readonly Context _context;
-        private readonly DbSet<Customer> _customers;
+        private readonly DbSet<User> _customers;
 
-        public CustomerRepository(Context dbContext)
+        public UserRepository(Context dbContext)
         {
             _context = dbContext;
             _customers = dbContext.Customers;
         }
 
-        public void Add(Customer customer)
+        public void Add(User customer)
         {
             _customers.Add(customer);
         }
 
-        public Customer GetByEmail(string email)
+        public User GetByEmail(string email)
         {
             return _customers.Include(x => x.Games).SingleOrDefault(x => x.Email == email);
         }
@@ -30,7 +30,7 @@ namespace Api.Data.Repositories
             _context.SaveChanges();
         }
 
-        public void Update(Customer customer)
+        public void Update(User customer)
         {
             _context.Update(customer);
         }

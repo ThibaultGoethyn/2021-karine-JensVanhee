@@ -52,23 +52,21 @@ namespace Api.Data
 
                 if (!_dbContext.Customers.Any())
                 {
-                    Customer Nathan = new Customer("Nathan", "Drake", "Nathan-Drake@gmail.com")
+                    User Nathan = new User("Nathan", "Drake", "Nathan-Drake@gmail.com")
                     {
                         // Uncharted Drakes Fortune, Uncharted 2 Among Thieves, Uncharted 3 Drake's Deception
-                        Games = new List<Game> { games[1], games[2], games[3] },
-                        Balance = 100.00
+                        Games = new List<Game> { games[1], games[2], games[3] }
                     };
                     await CreateUser(Nathan.Email, "N@th@n123");
 
-                    Customer Danny = new Customer("Danny", "Johanson", "Danny-Johanson@gmail.com")
+                    User Danny = new User("Danny", "Johanson", "Danny-Johanson@gmail.com")
                     {
                         // Call Of Duty Black Ops II, Marvel's Spider-Man, Call Of Duty Black Ops Cold War [PS4], Pokémon Diamond
-                        Games = new List<Game> { games[4], games[6], games[7], games[14] },
-                        Balance = 48.54
+                        Games = new List<Game> { games[4], games[6], games[7], games[14] }
                     };
                     await CreateUser(Danny.Email, "D@nny123");
 
-                    Customer Jonathan = new Customer("Jonathan", "Loones", "Jonathan-Loones@gmail.com");
+                    User Jonathan = new User("Jonathan", "Loones", "Jonathan-Loones@gmail.com");
                     await CreateUser(Jonathan.Email, "Jon@th@n123");
 
                     _dbContext.Customers.AddRange(Nathan, Danny, Jonathan);

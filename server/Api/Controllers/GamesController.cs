@@ -18,9 +18,9 @@ namespace Api.Controllers
     public class GamesController : ControllerBase
     {
         private readonly IGameRepository _gameRepository;
-        private readonly ICustomerRepository _customerRepository;
+        private readonly IUserRepository _customerRepository;
 
-        public GamesController(IGameRepository gameRepository, ICustomerRepository customerRepository)
+        public GamesController(IGameRepository gameRepository, IUserRepository customerRepository)
         {
             _gameRepository = gameRepository;
             _customerRepository = customerRepository;

@@ -8,7 +8,7 @@ namespace Api.Data
     public class Context : IdentityDbContext
     {
         public DbSet<Game> Games { get; set; }
-        public DbSet<Customer> Customers { get; set; }
+        public DbSet<User> Customers { get; set; }
 
         public Context(DbContextOptions<Context> options) : base(options)
         {
@@ -19,7 +19,7 @@ namespace Api.Data
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new GameConfiguration());
-            modelBuilder.ApplyConfiguration(new CustomerConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
         }
     }
 }

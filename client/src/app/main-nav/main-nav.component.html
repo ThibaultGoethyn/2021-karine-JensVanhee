@@ -22,12 +22,12 @@
       *ngIf="isHandset$ | async">
       <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
     </button>
-    <span>The Game Shop</span>
+    <span>The Game Stock Manager</span>
     <span class="fill-space"></span>
     <span *ngIf="loggedInUser$ | async as user; else loginTemplate">
       {{ user }}
       <button (click)="logout()" mat-flat-button>
-        logout
+        Logout
       </button>
     </span>
     <ng-template #loginTemplate>

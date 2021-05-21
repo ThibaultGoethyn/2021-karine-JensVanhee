@@ -35,7 +35,7 @@ namespace Api
 
             services.AddScoped<DataInitializer>();
             services.AddScoped<IGameRepository, GameRepository>();
-            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             services.AddIdentity<IdentityUser, IdentityRole>(cfg => cfg.User.RequireUniqueEmail = true).AddEntityFrameworkStores<Context>();
 
