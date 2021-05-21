@@ -1,7 +1,8 @@
-# Game Shop
+# The Game Stock Manager
 
 ## About the project
-The Game Shop is a fictional webshop where customers can buy their favourite new and used games. When they buy games they can grow their collection. 
+The Game Stock Manager is a fictional website to manage the new and used stock of their games. The project is made for the course WebAppsIV (2020-2021) in HoGent.
+
 ## Prerequisites
 
 - Node.js installed
@@ -25,6 +26,12 @@ cd Client
 npm install
 ng build
 npm start
+```
+
+#### Login credentials
+```
+Email: Nathan-Drake@gmail.com
+Password: N@th@n123
 ```
 
 ### Server using localhost port 44349
