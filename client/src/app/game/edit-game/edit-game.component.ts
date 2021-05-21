@@ -21,7 +21,7 @@ export class EditGameComponent implements OnInit {
       description: new FormControl(''),
       gameConsole: new FormControl('', [Validators.required]),
       newPrice: new FormControl('', [Validators.required, Validators.pattern("^[0-9.,]*$")]),
-      usedPrice: new FormControl('', [Validators.pattern("^[0-9.,]*$")]),
+      usedPrice: new FormControl('', [Validators.required, Validators.pattern("^[0-9.,]*$")]),
       newStock: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
       usedStock: new FormControl('',[Validators.pattern("^[0-9]*$")] )
     });

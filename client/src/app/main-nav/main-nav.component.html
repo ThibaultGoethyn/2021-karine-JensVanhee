@@ -6,9 +6,9 @@
     [opened]="(isHandset$ | async) === false">
   <mat-toolbar>Menu</mat-toolbar>
   <mat-nav-list>
-    <a mat-list-item [routerLink]="['game/list']">Games</a>
-    <a mat-list-item [routerLink]="['game/add']">Add game</a>
-    <a mat-list-item [routerLink]="['game/delete']">Delete game</a>
+    <a mat-list-item [routerLink]="['game/list']" data-cy="games-button">Games</a>
+    <a mat-list-item [routerLink]="['game/add']" data-cy="add-game-button">Add game</a>
+    <a mat-list-item [routerLink]="['game/delete']" data-cy="delete-game-button">Delete game</a>
   </mat-nav-list>
   </mat-sidenav>
 
@@ -24,19 +24,12 @@
     </button>
     <span>The Game Stock Manager</span>
     <span class="fill-space"></span>
-    <span *ngIf="loggedInUser$ | async as user; else loginTemplate">
+    <span *ngIf="loggedInUser$ | async as user;">
       {{ user }}
       <button (click)="logout()" mat-flat-button>
         Logout
       </button>
     </span>
-    <ng-template #loginTemplate>
-      <span>
-        <button (click)="login()" mat-flat-button>
-          Login
-        </button>
-      </span>
-    </ng-template>
   </mat-toolbar>
   <ng-content></ng-content>
 </mat-sidenav-content>
