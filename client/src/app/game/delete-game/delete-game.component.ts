@@ -1,4 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EMPTY, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { GameDataService } from '../game-data.service';
@@ -12,6 +13,7 @@ import { Game } from '../game.model';
 export class DeleteGameComponent implements OnInit {
   public errorMessage: string = '';
   private _fetchGames$: Observable<Game[]>;
+  public game: FormGroup;
   constructor(private _gameDataService: GameDataService) { }
 
   ngOnInit(): void {
@@ -21,11 +23,15 @@ export class DeleteGameComponent implements OnInit {
         return EMPTY;
       })
     );
+
+    this.game = new FormGroup({
+      game: new FormControl('', [Validators.required])
+    })
   }
 
-  deleteGame(title: any): boolean {
-    console.log(title);
-    return false;
+  onSubmit() {
+    this._gameDataService.deleteGame(this.game.value);
+    console.log(this.game.value);
   }
 
   get games$(): Observable<Game[]> {

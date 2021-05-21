@@ -30,7 +30,7 @@ export class Game {
             json.usedPrice,
             json.newStock,
             json.usedStock);
-
+        game._gameId = json.gameId;
         return game;
     }
 
