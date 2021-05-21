@@ -13,7 +13,7 @@ describe('game test', function(){
         cy.get('[data-cy=gameCardList]').should('have.length', 3);
     });
 
-    it('filter test', function() {
+    it('succes filter game', function() {
         cy.get('[data-cy=filterInput]').type("pok");
         cy.get('[data-cy=gameCardList]').should('have.length',1);
     })
