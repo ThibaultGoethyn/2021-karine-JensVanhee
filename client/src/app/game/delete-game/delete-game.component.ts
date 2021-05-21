@@ -1,5 +1,4 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EMPTY, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { GameDataService } from '../game-data.service';
@@ -17,7 +16,7 @@ export class DeleteGameComponent implements OnInit {
   constructor(private _gameDataService: GameDataService) { }
 
   ngOnInit(): void {
-    this._fetchGames$ = this._gameDataService.allGames$.pipe(
+    this._fetchGames$ = this._gameDataService.games$.pipe(
       catchError(err => {
         this.errorMessage = err;
         return EMPTY;
