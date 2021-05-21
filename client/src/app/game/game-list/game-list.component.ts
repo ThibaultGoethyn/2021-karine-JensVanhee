@@ -21,7 +21,7 @@ export class GameListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._fetchGames$ = this._gameDataService.allGames$.pipe(
+    this._fetchGames$ = this._gameDataService.games$.pipe(
       catchError(err => {
         this.errorMessage = err;
         return EMPTY;
