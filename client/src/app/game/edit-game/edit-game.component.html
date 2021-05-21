@@ -1,0 +1,62 @@
+<mat-card>
+    <h3>Edit a game</h3>
+    <form [formGroup]="gameFG" (ngSubmit)="onSubmit()">
+        <div fxLayout="column">
+            <div fxLayout="row" fxLayoutAlign="space-start center" fxLayoutGap="11.25%">
+                <mat-form-field>
+                    <input matInput placeholder="Title" type="text" #newGame formControlName="title" aria-label="title"/>
+                    <mat-error *ngIf="gameFG.get('title')?.errors">
+                        {{ getErrorMessage(gameFG.get('title')['errors'])}}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Console</mat-label>                    
+                    <mat-select #newGame formControlName="gameConsole" aria-label="Console">
+                        <mat-option *ngFor="let gameConsole of gameConsoles" [value]="gameConsole">{{gameConsole}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="gameFG.get('gameConsole')?.errors">
+                        {{ getErrorMessage(gameFG.get('gameConsole')['errors'])}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <mat-form-field style="width: 490px;">
+                <textarea matInput placeholder="Description" type="text" #newGame formControlName="description" aria-lavel="description" rows="5" >
+                </textarea>
+            </mat-form-field>
+            <div fxLayout="row" fxLayoutAlign="space-start center" fxLayoutGap="11.25%">
+            <mat-form-field>
+                <input matInput placeholder="New price" type="text" #newGame formControlName="newPrice" aria-label="new price"/>
+                <mat-error *ngIf="gameFG.get('newPrice')?.errors">
+                    {{ getErrorMessage(gameFG.get('newPrice')['errors'])}}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Used price" type="text" #newGame formControlName="usedPrice" aria-label="used price"/>
+                <mat-error *ngIf="gameFG.get('usedPrice')?.errors">
+                    {{ getErrorMessage(gameFG.get('usedPrice')['errors'])}}
+                </mat-error>
+            </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-start center" fxLayoutGap="11.25%">
+            <mat-form-field>
+                <input matInput placeholder="New stock" type="text" #newGame formControlName="newStock" aria-label="new stock"/>
+                <mat-error *ngIf="gameFG.get('newStock')?.errors">
+                    {{ getErrorMessage(gameFG.get('newStock')['errors'])}}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Used stock" type="text" #newGame formControlName="usedStock" aria-label="used stock"/>
+                <mat-error *ngIf="gameFG.get('usedStock')?.errors">
+                    {{ getErrorMessage(gameFG.get('usedStock')['errors'])}}
+                </mat-error>
+            </mat-form-field>
+            </div>
+            <button style="width: 150px; margin-left: 14.5%" type="submit" mat-raised-button [disabled]="!gameFG.valid">
+                Edit game
+            </button>
+        </div>
+    </form>
+    <p class="confirmation" *ngIf="confirmationMessage" data-cy="appConfirmation">
+        {{ confirmationMessage }}
+    </p>
+</mat-card>

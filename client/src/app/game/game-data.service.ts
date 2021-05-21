@@ -55,6 +55,12 @@ export class GameDataService {
       })
   }
 
+  getGame$(id: number): Observable<Game> {
+    return this.http
+      .get(`${environment.apiUrl}/games/${id}`)
+      .pipe(tap(console.log), catchError(this.handleError), map(Game.fromJSON));
+  }
+
   handleError(err: any): Observable<never> {
     let errorMessage: string;
     if (err instanceof HttpErrorResponse) {

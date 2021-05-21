@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Game } from '../game.model';
 
 @Component({
@@ -9,11 +10,16 @@ import { Game } from '../game.model';
 export class GameComponent implements OnInit {
   @Input() public game: Game;
 
-  constructor() {
-
-   }
+  constructor( 
+    private route: ActivatedRoute,
+    private router: Router) {}
 
   ngOnInit(): void {
+    const gameId = this.route.snapshot.paramMap.get('id');
   }
 
+  editGame(){
+    const gameId = this.game ? this.game.gameId : null;
+    this.router.navigate([`/game/edit/${gameId}`]);
+  }
 }

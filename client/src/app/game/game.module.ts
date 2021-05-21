@@ -8,12 +8,17 @@ import { AddGameComponent } from './add-game/add-game.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { DeleteGameComponent } from './delete-game/delete-game.component';
+import { EditGameComponent } from './edit-game/edit-game.component';
+import { gameResolver } from './game-resolver';
 
 const routes = [
   { path: 'list', component: GameListComponent },
   { path: 'add', component: AddGameComponent },
-  { path: 'delete', component: DeleteGameComponent}
-]
+  { path: 'delete', component: DeleteGameComponent},
+  { path: 'edit/:id',  component: EditGameComponent,
+    resolve: {game: gameResolver } 
+  },
+];
 
 @NgModule({
   declarations: [
@@ -21,7 +26,8 @@ const routes = [
     GameListComponent,
     GameFilterPipe,
     AddGameComponent,
-    DeleteGameComponent
+    DeleteGameComponent,
+    EditGameComponent
   ],
   imports: [
     CommonModule,

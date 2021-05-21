@@ -23,10 +23,13 @@
         <td>{{game.newStock}}</td> 
         <td>{{game.usedStock}}</td> 
       </tr>
-      <tr>
+      <!--<tr>
         <td><button mat-stroked-button><span class="material-icons">shopping_cart</span>New</button></td>
         <td><button mat-stroked-button><span class="material-icons">shopping_cart</span>Used</button></td>
-      </tr>
+      </tr>-->
     </table>
   </mat-card-content>
+  <mat-card-actions>
+    <button (click)="editGame()" mat-stroked-button class="material-icons" style="margin-left: 35%;"><span class="material-icons">edit</span></button>
+  </mat-card-actions>
   </mat-card>
