@@ -11,13 +11,18 @@ import { environment } from 'src/environments/environment';
 
 export class GameDataService {
 
-  private _addedGames$ = new Subject<Game>();
-  private _allGames$: Observable<Game[]> = merge(this.games$, this._addedGames$).pipe(tap(console.log),scan((acc: Game[], value: Game) => [...acc, value]));
+  private _games$ = new BehaviorSubject<Game[]>([]);
+  private _games: Game[];
  
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.games$.subscribe((games: Game[]) => {
+      this._games = games;
+      this._games$.next(this._games);
+    });
+  }
 
   get allGames$(): Observable<Game[]> {
-    return this._allGames$;
+    return this._games$;
   }
 
   get games$() : Observable<Game[]> {
@@ -34,7 +39,8 @@ export class GameDataService {
       .post(`${environment.apiUrl}/games/`, game.toJSON())
       .pipe(tap(console.log),catchError(this.handleError), map(Game.fromJSON))
       .subscribe((game:Game) => {
-        this._addedGames$.next(game);
+        this._games= [... this._games, game];
+        this._games$.next(this._games);
       });
   }
 
@@ -42,7 +48,11 @@ export class GameDataService {
     console.log(gameId);
     return this.http
       .delete(`${environment.apiUrl}/games/${gameId}`)
-      .pipe(tap(console.log), catchError(this.handleError));
+      .pipe(tap(console.log), catchError(this.handleError))
+      .subscribe(() => {
+        this._games = this._games.filter(gam => gam.gameId != gameId);
+        this._games$.next(this._games);
+      })
   }
 
   handleError(err: any): Observable<never> {

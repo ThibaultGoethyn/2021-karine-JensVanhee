@@ -1,17 +1,17 @@
 <mat-card>
 <h3>Delete a game</h3>
-<form [formGroup]="game" (ngSubmit)="onSubmit()">
     <mat-form-field style="width: 500px;">
         <mat-label>Game</mat-label>                    
-        <mat-select aria-label="Game" formControlName="game" >
+        <mat-select aria-label="Game" #game >
                 <mat-option *ngFor="let localGame of (games$ | async)" [value]="localGame.gameId"> 
                     {{localGame.title}} | {{localGame.gameConsole}}
                 </mat-option>     
         </mat-select>   
     </mat-form-field>
-     <button type='submit' mat-raised-button style="margin-left: 20px;">
+     <button (click)="deleteGame(game)" mat-raised-button style="margin-left: 20px;">
         Delete game
     </button>
-</form>
+    <p class="confirmation" *ngIf="confirmationMessage">
+        {{ confirmationMessage }}
+    </p>
 </mat-card>
-{{ game.value | json}}

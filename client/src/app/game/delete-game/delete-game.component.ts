@@ -13,7 +13,7 @@ import { Game } from '../game.model';
 export class DeleteGameComponent implements OnInit {
   public errorMessage: string = '';
   private _fetchGames$: Observable<Game[]>;
-  public game: FormGroup;
+  public confirmationMessage: string = '';
   constructor(private _gameDataService: GameDataService) { }
 
   ngOnInit(): void {
@@ -23,15 +23,11 @@ export class DeleteGameComponent implements OnInit {
         return EMPTY;
       })
     );
-
-    this.game = new FormGroup({
-      game: new FormControl('', [Validators.required])
-    })
   }
 
-  onSubmit() {
-    this._gameDataService.deleteGame(this.game.value);
-    console.log(this.game.value);
+  deleteGame(game: any) {
+    this._gameDataService.deleteGame(game.value);
+    this.confirmationMessage = `Succesfully deleted the game.`
   }
 
   get games$(): Observable<Game[]> {
